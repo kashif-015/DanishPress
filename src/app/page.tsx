@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { CardGrid, FilterTabs } from "@/components/cards";
@@ -32,6 +32,30 @@ import {
 } from "lucide-react";
 
 export default function HomePage() {
+  return (
+    <Suspense fallback={<HomePageSkeleton />}>
+      <HomePageContent />
+    </Suspense>
+  );
+}
+
+function HomePageSkeleton() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <div className="animate-pulse p-4">
+        <div className="h-48 bg-gray-200 rounded-xl mb-4" />
+        <div className="h-12 bg-gray-200 rounded-lg mb-4" />
+        <div className="grid grid-cols-2 gap-4">
+          {[1, 2, 3, 4].map((i) => (
+            <div key={i} className="h-64 bg-gray-200 rounded-xl" />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HomePageContent() {
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get("category") as CardCategory | null;
 
@@ -671,7 +695,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key`}
                 © {new Date().getFullYear()} DanishPress. All rights reserved.
               </p>
               <p className="text-gray-500 text-sm flex items-center gap-2">
-                Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> for your special day
+                Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> by Kashif Raja
               </p>
             </div>
           </div>

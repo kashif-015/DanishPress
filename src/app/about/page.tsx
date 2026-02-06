@@ -195,7 +195,7 @@ export default function AboutPage() {
             Chat on WhatsApp
           </a>
           <p className="mt-4 text-gray-500 text-sm flex items-center justify-center gap-2">
-            Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> for your special day
+            Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> by Kashif Raja
           </p>
         </div>
       </section>
