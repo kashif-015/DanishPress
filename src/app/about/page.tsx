@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { MessageCircle, MapPin, Clock, Phone, Heart, Sparkles, Award, Truck, Palette, Users } from "lucide-react";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About Us | DanishPress - Premium Wedding Invitations",
@@ -48,8 +49,8 @@ export default function AboutPage() {
       <section className="relative py-20 md:py-28 bg-gradient-to-br from-primary-50/50 via-white to-secondary-50/50 overflow-hidden">
         <div className="absolute inset-0 pattern-dots opacity-30" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 text-white font-bold text-4xl shadow-xl shadow-primary-500/25 mb-8">
-            D
+          <div className="inline-flex mb-8">
+            <Image src="/logo.png" alt="DanishPress Logo" width={120} height={120} className="object-contain" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             About <span className="gradient-text">DanishPress</span>

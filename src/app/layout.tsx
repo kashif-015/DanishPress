@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import { Header } from "@/components/layout/Header";
 import { BottomNav } from "@/components/layout/BottomNav";
+import { PWAInstallButton, PWASplashScreen, PWARegister } from "@/components/pwa";
 import "./globals.css";
 
 const poppins = Poppins({ 
@@ -39,6 +40,19 @@ export const metadata: Metadata = {
     title: "DanishPress - Premium Wedding Invitation Cards",
     description: "Beautiful wedding invitation cards for Hindu and Muslim ceremonies.",
   },
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "DanishPress",
+  },
+  formatDetection: {
+    telephone: false,
+  },
 };
 
 export const viewport: Viewport = {
@@ -57,9 +71,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={poppins.variable}>
       <body className="font-sans bg-white">
+        <PWARegister />
+        <PWASplashScreen />
         <Header />
         <main className="min-h-screen pb-24 md:pb-0">{children}</main>
         <BottomNav />
+        <PWAInstallButton />
         <Toaster
           position="top-center"
           toastOptions={{

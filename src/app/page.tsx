@@ -25,10 +25,7 @@ import {
   ChevronUp,
   Play,
   Gem,
-  Crown,
-  Instagram,
-  Facebook,
-  Twitter
+  Crown
 } from "lucide-react";
 
 export default function HomePage() {
@@ -620,22 +617,6 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key`}
                 We specialize in Hindu and Muslim wedding cards with elegant 
                 designs, quality printing, and personalized service.
               </p>
-              <div className="flex items-center gap-3">
-                <a href="#" className="p-3 rounded-xl bg-gray-800 hover:bg-gray-700 transition-colors">
-                  <Instagram className="w-5 h-5" />
-                </a>
-                <a href="#" className="p-3 rounded-xl bg-gray-800 hover:bg-gray-700 transition-colors">
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a 
-                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919876543210'}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-xl bg-green-600 hover:bg-green-500 transition-colors"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                </a>
-              </div>
             </div>
 
             {/* Quick Links */}
@@ -673,15 +654,14 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key`}
                   <div className="p-2 rounded-lg bg-gray-800">
                     <MapPin className="w-4 h-4 text-primary-400" />
                   </div>
-                  <p className="text-sm">Your City, India</p>
+                  <p className="text-sm">Koran Sarai, Buxar</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="p-2 rounded-lg bg-gray-800">
                     <Clock className="w-4 h-4 text-primary-400" />
                   </div>
                   <div className="text-sm">
-                    <p>Mon - Sat: 10 AM - 8 PM</p>
-                    <p className="text-gray-500">Sunday: By Appointment</p>
+                    <p>Sat - Sun: 9 AM - 7 PM</p>
                   </div>
                 </div>
               </div>
