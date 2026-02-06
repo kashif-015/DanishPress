@@ -1,0 +1,364 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== BASE STYLES ===== */
+@layer base {
+  :root {
+    --font-inter: "Inter", system-ui, sans-serif;
+    
+    /* Zyforia-inspired color scheme */
+    --color-primary: 255 107 74;
+    --color-secondary: 20 184 166;
+    --color-accent: 251 146 60;
+    --color-dark: 15 23 42;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-gray-900 antialiased;
+    padding-bottom: env(safe-area-inset-bottom);
+    background: #ffffff;
+    min-height: 100vh;
+  }
+}
+
+/* ===== UTILITY CLASSES ===== */
+@layer utilities {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Glass morphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .glass-dark {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Gradient text - Zyforia style */
+  .gradient-text {
+    background: linear-gradient(135deg, #ff6b4a 0%, #14b8a6 50%, #fb923c 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 4s ease infinite;
+  }
+
+  .gradient-text-static {
+    background: linear-gradient(135deg, #ff6b4a 0%, #14b8a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Gradient backgrounds */
+  .gradient-primary {
+    background: linear-gradient(135deg, #ff6b4a 0%, #fb923c 100%);
+  }
+
+  .gradient-secondary {
+    background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%);
+  }
+
+  .gradient-mixed {
+    background: linear-gradient(135deg, #ff6b4a 0%, #14b8a6 100%);
+  }
+
+  /* Section badge - Zyforia style */
+  .section-badge {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium;
+    background: linear-gradient(135deg, rgba(255, 107, 74, 0.1) 0%, rgba(20, 184, 166, 0.1) 100%);
+    border: 1px solid rgba(255, 107, 74, 0.2);
+  }
+
+  /* Card styles */
+  .card-modern {
+    @apply bg-white rounded-3xl border border-gray-100 shadow-lg shadow-gray-200/50;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-modern:hover {
+    @apply shadow-xl shadow-gray-200/80 border-gray-200;
+    transform: translateY(-8px);
+  }
+
+  .card-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 107, 74, 0.1),
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
+
+  .card-glow:hover::before {
+    left: 100%;
+  }
+
+  /* Button shine effect */
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .btn-shine:hover::before {
+    left: 100%;
+  }
+
+  /* Pattern backgrounds */
+  .pattern-dots {
+    background-image: radial-gradient(circle, rgba(255, 107, 74, 0.08) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .pattern-grid {
+    background-image: 
+      linear-gradient(rgba(255, 107, 74, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 107, 74, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Hero gradient - subtle and professional */
+  .hero-gradient {
+    background: 
+      radial-gradient(ellipse 80% 60% at 50% -20%, rgba(255, 107, 74, 0.08), transparent),
+      radial-gradient(ellipse 60% 50% at 100% 50%, rgba(20, 184, 166, 0.06), transparent),
+      radial-gradient(ellipse 50% 40% at 0% 100%, rgba(251, 146, 60, 0.05), transparent),
+      #ffffff;
+  }
+
+  /* Bento grid item */
+  .bento-item {
+    @apply relative bg-white rounded-3xl border border-gray-100 p-6 md:p-8 overflow-hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .bento-item:hover {
+    @apply border-gray-200 shadow-xl shadow-gray-200/60;
+    transform: translateY(-4px);
+  }
+
+  /* Marquee */
+  .marquee {
+    display: flex;
+    animation: marquee 30s linear infinite;
+  }
+
+  .marquee:hover {
+    animation-play-state: paused;
+  }
+
+  /* Text shadow */
+  .text-shadow {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Focus ring */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500/50;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(3deg); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(0.98); }
+}
+
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(255, 107, 74, 0.2), 0 0 40px rgba(20, 184, 166, 0.1);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(255, 107, 74, 0.3), 0 0 60px rgba(20, 184, 166, 0.2);
+  }
+}
+
+/* Animation utility classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+.animate-bounce-soft {
+  animation: bounce-soft 2s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s ease-out forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Stagger delays */
+.delay-75 { animation-delay: 75ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-1000 { animation-delay: 1000ms; }
+
+/* ===== SWIPER CUSTOM STYLES ===== */
+.swiper-pagination-bullet {
+  background: rgba(255, 107, 74, 0.3) !important;
+  opacity: 1 !important;
+  width: 8px !important;
+  height: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-pagination-bullet-active {
+  width: 24px !important;
+  border-radius: 4px !important;
+  background: linear-gradient(90deg, #ff6b4a, #14b8a6) !important;
+}
+
+/* ===== RESPONSIVE UTILITIES ===== */
+@media (max-width: 640px) {
+  .hero-gradient {
+    background: 
+      radial-gradient(ellipse 100% 80% at 50% -30%, rgba(255, 107, 74, 0.1), transparent),
+      #ffffff;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
