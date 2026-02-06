@@ -18,7 +18,6 @@ import {
   Truck,
   Palette,
   Shield,
-  Clock,
   Heart,
   Phone,
   MapPin,
@@ -601,9 +600,9 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key`}
         <div className="absolute inset-0 pattern-grid opacity-5" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             {/* Brand */}
-            <div className="lg:col-span-2">
+            <div>
               <div className="flex items-center gap-3 mb-6">
                 <Image
                   src="/logo.png"
@@ -624,51 +623,34 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key`}
               </p>
             </div>
 
-            {/* Quick Links */}
-            <div>
-              <h4 className="font-semibold text-lg mb-6">Quick Links</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li>
-                  <a href="#collection" className="hover:text-primary-400 transition-colors flex items-center gap-2">
-                    <ArrowRight className="w-4 h-4" /> Browse Cards
-                  </a>
-                </li>
-                <li>
-                  <a href="/about" className="hover:text-primary-400 transition-colors flex items-center gap-2">
-                    <ArrowRight className="w-4 h-4" /> About Us
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919876543210'}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-primary-400 transition-colors flex items-center gap-2"
-                  >
-                    <ArrowRight className="w-4 h-4" /> Contact Us
-                  </a>
-                </li>
-              </ul>
-            </div>
-
             {/* Contact Info */}
             <div>
-              <h4 className="font-semibold text-lg mb-6">Contact Info</h4>
+              <h4 className="font-semibold text-lg mb-6">Contact Us</h4>
               <div className="space-y-4 text-gray-400">
+                <a 
+                  href="tel:9771012626" 
+                  className="flex items-start gap-3 hover:text-primary-400 transition-colors"
+                >
+                  <div className="p-2 rounded-lg bg-gray-800">
+                    <Phone className="w-4 h-4 text-primary-400" />
+                  </div>
+                  <p className="text-sm pt-2">9771012626</p>
+                </a>
                 <div className="flex items-start gap-3">
                   <div className="p-2 rounded-lg bg-gray-800">
                     <MapPin className="w-4 h-4 text-primary-400" />
                   </div>
-                  <p className="text-sm">Koran Sarai, Buxar</p>
+                  <p className="text-sm pt-2">Koran Sarai, Buxar, Bihar</p>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-gray-800">
-                    <Clock className="w-4 h-4 text-primary-400" />
-                  </div>
-                  <div className="text-sm">
-                    <p>Sat - Sun: 9 AM - 7 PM</p>
-                  </div>
-                </div>
+                <a 
+                  href="https://www.google.com/maps/place/Danish+Printing+Press/@25.4711493,84.1826025,17z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors text-sm"
+                >
+                  <MapPin className="w-4 h-4 text-primary-400" />
+                  View on Google Maps
+                </a>
               </div>
             </div>
           </div>
