@@ -1,6 +1,6 @@
 {
   "name": "Danish Press - A Complete Printing Solution",
-  "short_name": "DanishPress",
+  "short_name": "Danish Press",
   "description": "Premium wedding invitation cards for Hindu and Muslim ceremonies",
   "start_url": "/",
   "display": "standalone",
@@ -12,13 +12,13 @@
       "src": "/logo.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "/logo.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ],
   "screenshots": [],

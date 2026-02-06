@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { CardGrid, FilterTabs } from "@/components/cards";
 import { CardWithImages, CardCategory } from "@/types";
@@ -604,9 +605,13 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key`}
             {/* Brand */}
             <div className="lg:col-span-2">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center text-white font-bold text-xl">
-                  D
-                </div>
+                <Image
+                  src="/logo.png"
+                  alt="DanishPress Logo"
+                  width={48}
+                  height={48}
+                  className="w-12 h-12 object-contain"
+                />
                 <div>
                   <span className="font-bold text-2xl">DanishPress</span>
                   <p className="text-gray-400 text-sm">Premium Wedding Invitations</p>

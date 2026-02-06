@@ -60,13 +60,12 @@ export function PWASplashScreen() {
               boxShadow: ["0 0 0 0 rgba(225, 29, 72, 0.4)", "0 0 0 30px rgba(225, 29, 72, 0)", "0 0 0 0 rgba(225, 29, 72, 0)"]
             } : {}}
             transition={{ duration: 1.5, delay: 0.5 }}
-            className="rounded-3xl overflow-hidden"
           >
             <Image
               src="/logo.png"
               alt="Danish Press Logo"
-              width={120}
-              height={120}
+              width={140}
+              height={140}
               className="object-contain"
               priority
             />
